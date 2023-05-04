@@ -11,19 +11,25 @@ function RootNavigator() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#1ecad4",
+          },
+        }}
+      >
+        <Stack.Screen name=" " component={Home} />
         <Stack.Screen name="Chat" component={ChatScreen} />
         <Stack.Screen
           name="AboutUs"
           component={AboutUs}
           options={({ navigation }) => ({
-            title: "Hey axis",
+            title: "About Axis",
             headerRight: () => (
               <Button
                 onPress={() => navigation.navigate("Chat")}
                 title="Chat"
-                color="#00cc00"
+                color="#000000"
               />
             ),
           })}

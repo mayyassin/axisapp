@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { Container } from "./styles";
 
 function AboutUs() {
   return (
-    <View style={styles.container}>
+    <Container>
       <Text>About Us Screen!</Text>
-    </View>
+    </Container>
   );
 }
 
