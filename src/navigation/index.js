@@ -28,8 +28,6 @@ function RootNavigator() {
         screenOptions={{
           headerStyle: {
             backgroundColor: "#1ecad4",
-            borderBottomWidth: 5,
-            borderBottomColor: "#000",
           },
         }}
       >
