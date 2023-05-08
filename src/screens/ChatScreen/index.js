@@ -1,13 +1,39 @@
-import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  InputAccessoryView,
+  Button,
+} from "react-native";
+import { Container } from "./styles";
 
 function ChatScreen() {
-  const [text, setText] = React.useState("");
+  const [text, setText] = useState("Placeholder Text");
+  const inputAccessoryViewID = "inputAccessoryView1";
   return (
-    <View style={styles.container}>
-      <Text>Chat Screen!</Text>
-      <TextInput style={styles.textDesign} placeholder="type here" />
-    </View>
+    <Container>
+      <TextInput
+        style={styles.default}
+        inputAccessoryViewID={inputAccessoryViewID}
+        onChangeText={(text) => setText({ text })}
+        value={text}
+      />
+      <InputAccessoryView nativeID={inputAccessoryViewID}>
+        <View
+          style={{
+            backgroundColor: "#63BECA",
+            borderColor: "black",
+            borderTopWidth: 1,
+          }}
+        >
+          <Button
+            onPress={() => setText("Placeholder Text")}
+            title="Reset Text"
+          />
+        </View>
+      </InputAccessoryView>
+    </Container>
   );
 }
 
