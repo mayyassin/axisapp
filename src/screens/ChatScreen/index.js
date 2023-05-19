@@ -5,6 +5,7 @@ import {
   TextInput,
   InputAccessoryView,
   Button,
+  Text,
 } from "react-native";
 import { Container } from "./styles";
 import axios from "axios";
@@ -16,7 +17,7 @@ function ChatScreen() {
   const handleMessage = async () => {
     // Make an API call to Rasa
     const response = await axios.post(
-      "http://<rasa-server-ip>:<rasa-server-port>/webhooks/rest/webhook",
+      "https://3a40-115-99-174-215.ngrok-free.app/webhooks/rest/webhook",
       {
         message: message,
       }
@@ -29,6 +30,9 @@ function ChatScreen() {
     // Clear the input field
     setMessage("");
   };
+
+  console.log(chatLog);
+  console.log(message);
 
   const inputAccessoryViewID = "inputAccessoryView1";
   return (
