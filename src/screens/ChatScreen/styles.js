@@ -1,11 +1,13 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 
 export default StyleSheet.create({
   container: {
     flex: 1,
+    width: width * 1,
+    height: height * 0.5,
   },
   messageButton: {
     flexDirection: "row",

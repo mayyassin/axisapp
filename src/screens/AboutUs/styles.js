@@ -1,22 +1,42 @@
 import styled from "styled-components/native";
+import * as palette from "../../variables.js";
+import { Dimensions } from "react-native";
+
+const { width, height } = Dimensions.get("window");
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #ffffff;
-  align-items: center;
-  justify-content: center;
+  background-color: ${palette.white};
+  border: solid;
+  width: ${width * 1}px;
+  height: ${height * 0.5}px;
 `;
 
-export const AboutText = styled.Text`
-  font-size: 16px;
-  text-align: justify;
-  font-weight: bold;
-  margin-left: 45px;
-  margin-right: 45px;
+export const ContentView = styled.ScrollView`
+  padding-top: 32px;
+  padding-left: 56px;
+  padding-right: 56px;
 `;
 
 export const ChatIcon = styled.Image`
   height: 5%;
   width: 5%;
   margin-bottom: 60px;
+`;
+export const AboutText = styled.Text`
+  font-family: Manjari_700Bold;
+  font-size: 16px;
+`;
+
+export const FooterText = styled.Text`
+  font-family: Manjari_100Thin;
+  font-size: 8px;
+`;
+
+export const Footer = styled.View`
+  background-color: ${palette.primaryblue};
+  height: 100px;
+  width: 100%;
+  border: solid;
+  padding: 16px;
 `;
