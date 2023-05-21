@@ -46,7 +46,15 @@ const RasaChat = React.forwardRef((props, ref) => {
     botAvatar = "",
     ...giftedChatProp
   } = props;
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      text: "Welcome to Axis Bot",
+      createdAt: new Date(),
+      user: {
+        avatar: botAvatar,
+      },
+    },
+  ]);
   const [lastRasaCustomResponse, setLastRasaCustomResponse] = useState();
   const userData = {
     _id: userId,
@@ -57,6 +65,7 @@ const RasaChat = React.forwardRef((props, ref) => {
     _id: "bot_Id_1",
     name: botName,
     avatar: botAvatar,
+    text: "Welcome to Axis Bot",
   };
 
   useImperativeHandle(ref, () => ({
