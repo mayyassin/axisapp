@@ -1,19 +1,21 @@
 // colors
 export const black = "#1d1111";
-export const white = "#ffffff";
+export const white = "#FFFFFF";
 export const lightGrey = "#e8e7e7";
 export const grey = "#d2d0cf";
 export const darkGrey = "#a39f9f";
 export const textBlack = "#493e3e";
 
+// primary
 export const primaryblue = "#1ecad3";
-export const darkRed = "#bf3a3a";
-export const lightRed = "#f26c6c";
-export const lightBg = "#feeeed";
+export const yellow = "#ffc600";
+export const purple = "#993dbb";
+export const orange = "#ff671d";
 
+// secondary
 export const green = "#00b451";
 export const red = "#ce0e2d";
-export const blue = "#0075c9";
+export const secondaryblue = "#0075c9";
 export const pink = "#e31d93";
 
 // spacing
