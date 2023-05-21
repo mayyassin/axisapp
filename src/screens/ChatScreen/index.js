@@ -1,89 +1,98 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  InputAccessoryView,
-  Button,
-  Text,
-} from "react-native";
-import { Container } from "./styles";
-import axios from "axios";
+import React, { useRef } from "react";
+import { SafeAreaView, StatusBar, Text, View } from "react-native";
+import Video from "react-native-video";
 
-function ChatScreen() {
-  const [message, setMessage] = useState("Placeholder Text");
-  const [chatLog, setChatLog] = useState([]);
+import RasaChat, { Send, InputToolbar, Composer, Actions } from "./RNRasa";
 
-  const handleMessage = async () => {
-    // Make an API call to Rasa
-    const response = await axios.post(
-      "https://3a40-115-99-174-215.ngrok-free.app/webhooks/rest/webhook",
-      {
-        message: message,
-      }
-    );
+import styles from "./styles";
 
-    // Update the chat log
-    const newChatLog = [...chatLog, ...response.data];
-    setChatLog(newChatLog);
+const HOST = "https://592e-115-99-174-215.ngrok-free.app";
 
-    // Clear the input field
-    setMessage("");
+const botAvatar =
+  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80";
+const userAvatar =
+  "https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80";
+
+const ChatScreen = () => {
+  const rasaChatRef = useRef(null);
+
+  const resetMessages = () => {
+    rasaChatRef?.current?.resetMessages();
   };
 
-  console.log(chatLog);
-  console.log(message);
+  const resetBot = () => {
+    rasaChatRef?.current?.resetBot();
+  };
 
-  const inputAccessoryViewID = "inputAccessoryView1";
+  const sendStartConversation = () => {
+    rasaChatRef?.current?.sendCustomMessage("Hi");
+  };
+
   return (
-    <Container>
-      <View>
-        {chatLog.map((chat, index) => (
-          <Text key={index}>{chat.text}</Text>
-        ))}
-      </View>
-      <TextInput
-        style={styles.default}
-        inputAccessoryViewID={inputAccessoryViewID}
-        onChangeText={(message) => setMessage({ message })}
-        value={message}
-      />
-      <InputAccessoryView nativeID={inputAccessoryViewID}>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: "row",
-            backgroundColor: "#63BECA",
-            borderColor: "black",
-            borderTopWidth: 1,
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={styles.container}>
+        <RasaChat
+          ref={rasaChatRef}
+          host={HOST}
+          placeholder="Your input placeholder"
+          botAvatar={botAvatar}
+          userAvatar={userAvatar}
+          showUserAvatar
+          renderInputToolbar={(props) => (
+            <InputToolbar
+              {...props}
+              containerStyle={styles.InputToolbar}
+              primaryStyle={{ alignItems: "center" }}
+            />
+          )}
+          renderActions={(props) => (
+            <Actions
+              {...props}
+              containerStyle={styles.containerActions}
+              options={{
+                "Start New Conversation": sendStartConversation,
+                "Clear messages": resetMessages,
+                "Reset Bot": resetBot,
+                Cancel: () => {},
+              }}
+            />
+          )}
+          renderComposer={(props) => (
+            <Composer {...props} textInputStyle={styles.textComposer} />
+          )}
+          alwaysShowSend
+          renderSend={(props) => {
+            return (
+              <Send
+                {...props}
+                disabled={!props.text}
+                containerStyle={styles.sendContainer}
+              >
+                <Text style={{ color: !props.text ? "#d6d3d1" : "#2097F3" }}>
+                  Send
+                </Text>
+              </Send>
+            );
           }}
-        >
-          <Button
-            onPress={() => setMessage("Placeholder Text")}
-            title="Reset Text"
-          />
-          <View style={{ marginLeft: 90 }}>
-            <Button onPress={handleMessage} title="Send" />
-          </View>
-        </View>
-      </InputAccessoryView>
-    </Container>
+          renderMessageVideo={(props) => {
+            const { currentMessage } = props;
+            return (
+              <View style={{ padding: 0 }}>
+                <Video
+                  source={{ uri: currentMessage?.video }}
+                  resizeMode="cover"
+                  repeat
+                  controls
+                  style={styles.backgroundVideo}
+                />
+              </View>
+            );
+          }}
+        />
+      </SafeAreaView>
+    </>
   );
-}
+};
 
 export default ChatScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  textDesign: {
-    backgroundColor: "light grey",
-    width: "90%",
-    borderRadius: "100%",
-    borderWidth: "0.5px",
-  },
-});
