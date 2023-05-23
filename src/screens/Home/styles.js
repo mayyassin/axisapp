@@ -1,17 +1,16 @@
 import styled from "styled-components/native";
+import * as palette from "../../variables.js";
+import { Dimensions } from "react-native";
 
-// export const Container = styled.View`
-//     flex: 1,
-//     backgroundColor: "#1ecad4",
-//     alignItems: "center",
-//     justifyContent: "center",
-// `;
+const { width, height } = Dimensions.get("window");
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #1ecad4;
+  background-color: ${palette.primaryblue};
   align-items: center;
   justify-content: center;
+  width: ${width * 1}px;
+  height: ${height * 0.5}px;
 `;
 
 export const Logo = styled.Image`
@@ -21,10 +20,10 @@ export const Logo = styled.Image`
 `;
 
 export const ChatButton = styled.TouchableOpacity`
-  background-color: #ffc600;
-  width: 60%;
+  background-color: ${palette.yellow};
+  width: 80%;
   border-radius: 20%;
-  border-color: #000000;
+  border-color: ${palette.black};
   border-width: 0.5px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -33,16 +32,18 @@ export const ChatButton = styled.TouchableOpacity`
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 16px;
+  font-family: Manjari_700Bold;
+  font-weight: bolder;
+  font-size: 24px;
   text-align: center;
-  font-weight: bold;
+  padding-top: 5px;
 `;
 
 export const AboutButton = styled.TouchableOpacity`
-  background-color: #ff671d;
-  width: 60%;
+  background-color: ${palette.orange};
+  width: 80%;
   border-radius: 20%;
-  border-color: #000000;
+  border-color: ${palette.black};
   border-width: 0.5px;
   padding-top: 5px;
   padding-bottom: 5px;
