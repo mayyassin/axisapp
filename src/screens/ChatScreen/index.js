@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { SafeAreaView, StatusBar, Text, View } from "react-native";
+import { Image, SafeAreaView, StatusBar, Text, View } from "react-native";
 import Video from "react-native-video";
-
+import sendButton from "../../../assets/sendbutton.png";
 import RasaChat, { Send, InputToolbar, Composer, Actions } from "./RNRasa";
 
 import styles from "./styles";
@@ -69,9 +69,14 @@ const ChatScreen = () => {
                 disabled={!props.text}
                 containerStyle={styles.sendContainer}
               >
-                <Text style={{ color: !props.text ? "#d6d3d1" : "#2097F3" }}>
+                <Image
+                  source={sendButton}
+                  alt="sendbutton"
+                  style={{ height: 35, width: 35 }}
+                />
+                {/* <Text style={{ color: !props.text ? "#d6d3d1" : "#2097F3" }}>
                   Send
-                </Text>
+                </Text> */}
               </Send>
             );
           }}

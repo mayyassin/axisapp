@@ -199,9 +199,11 @@ const RasaChat = React.forwardRef((props, ref) => {
             {...props}
             textStyle={{
               right: {
-                color: "white",
+                fontFamily: "Manjari_700Bold",
+                color: "black",
               },
               left: {
+                fontFamily: "Manjari_700Bold",
                 color: "#24204F",
               },
             }}
@@ -212,7 +214,15 @@ const RasaChat = React.forwardRef((props, ref) => {
                 borderWidth: 1,
               },
               right: {
-                backgroundColor: "#993dbb",
+                backgroundColor: "#BEA5CC",
+              },
+            }}
+            timeTextStyle={{
+              right: {
+                color: "black", // Change the color of time for the sender's bubble
+              },
+              left: {
+                color: "black", // Change the color of time for the receiver's bubble
               },
             }}
           />

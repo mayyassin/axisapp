@@ -53,8 +53,8 @@ export default StyleSheet.create({
     width: 20,
     backgroundColor: "#EDF1F7",
     borderWidth: 1,
-    borderRadius: 5,
-    borderColor: "#E4E9F2",
+    borderRadius: 20,
+    borderColor: "black",
     paddingTop: 8.5,
     paddingHorizontal: 12,
     marginLeft: 10,
@@ -62,6 +62,9 @@ export default StyleSheet.create({
   containerActions: {
     justifyContent: "center",
     marginBottom: 0,
+    backgroundColor: "#1ecad3",
+    color: "black",
+    borderColor: "black",
   },
   sendContainer: {
     width: 46,
@@ -80,5 +83,7 @@ export default StyleSheet.create({
     paddingBottom: 3,
     marginTop: 10,
     marginBottom: -2,
+    backgroundColor: "#1ecad3",
+    borderColor: "black",
   },
 });
