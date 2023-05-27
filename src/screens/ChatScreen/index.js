@@ -3,13 +3,13 @@ import { Image, SafeAreaView, StatusBar, Text, View } from "react-native";
 import Video from "react-native-video";
 import sendButton from "../../../assets/sendbutton.png";
 import RasaChat, { Send, InputToolbar, Composer, Actions } from "./RNRasa";
+import axisLogo from "../../../assets/AxisParrotLogo.png";
 
 import styles from "./styles";
 
 const HOST = "https://592e-115-99-174-215.ngrok-free.app";
 
-const botAvatar =
-  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80";
+const botAvatar = axisLogo;
 const userAvatar =
   "https://images.unsplash.com/photo-1483884105135-c06ea81a7a80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80";
 
@@ -35,9 +35,9 @@ const ChatScreen = () => {
         <RasaChat
           ref={rasaChatRef}
           host={HOST}
-          placeholder="Your input placeholder"
+          placeholder=""
           botAvatar={botAvatar}
-          userAvatar={userAvatar}
+          // userAvatar={userAvatar}
           showUserAvatar
           renderInputToolbar={(props) => (
             <InputToolbar
@@ -49,6 +49,10 @@ const ChatScreen = () => {
           renderActions={(props) => (
             <Actions
               {...props}
+              wrapperStyle={{
+                borderColor: "#8F62A3",
+                backgroundColor: "#8F62A3",
+              }}
               containerStyle={styles.containerActions}
               options={{
                 "Start New Conversation": sendStartConversation,
@@ -74,9 +78,6 @@ const ChatScreen = () => {
                   alt="sendbutton"
                   style={{ height: 35, width: 35 }}
                 />
-                {/* <Text style={{ color: !props.text ? "#d6d3d1" : "#2097F3" }}>
-                  Send
-                </Text> */}
               </Send>
             );
           }}
