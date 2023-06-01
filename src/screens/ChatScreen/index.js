@@ -4,6 +4,7 @@ import Video from "react-native-video";
 import sendButton from "../../../assets/sendbutton.png";
 import RasaChat, { Send, InputToolbar, Composer, Actions } from "./RNRasa";
 import axisLogo from "../../../assets/AxisParrotLogo.png";
+import actionWhite from "../../../assets/actionwhite.png";
 
 import styles from "./styles";
 
@@ -49,10 +50,13 @@ const ChatScreen = () => {
           renderActions={(props) => (
             <Actions
               {...props}
-              wrapperStyle={{
-                borderColor: "#8F62A3",
-                backgroundColor: "#8F62A3",
-              }}
+              icon={() => (
+                <Image
+                  source={actionWhite}
+                  alt="actionbutton"
+                  style={{ height: 32, width: 32 }}
+                />
+              )}
               containerStyle={styles.containerActions}
               options={{
                 "Start New Conversation": sendStartConversation,

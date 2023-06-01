@@ -60,11 +60,12 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
   containerActions: {
+    width: 45,
+    height: 45,
+    alignItems: "center",
     justifyContent: "center",
+    marginHorizontal: 4,
     marginBottom: 0,
-    backgroundColor: "#1ecad3",
-    color: "black",
-    borderColor: "black",
   },
   sendContainer: {
     width: 46,
