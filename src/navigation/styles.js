@@ -8,13 +8,8 @@ export const ChatIcon = styled.Image`
 `;
 
 export const LogoIcon = styled.Image`
-  flex-direction: row;
-  width: 100px;
-  height: 35px;
-  margin-bottom: 10px;
-  //border-radius: 100%;
-  // border-color: #000000;
-  //border-width: 0.5px;
+  width: 40px;
+  height: 40px;
 `;
 
 export const ArrowLeft = styled.Image`
