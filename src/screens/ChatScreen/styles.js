@@ -8,6 +8,9 @@ export default StyleSheet.create({
     flex: 1,
     width: width * 1,
     height: height * 0.5,
+    borderWidth: 1,
+    border: "solid",
+    borderColor: "black",
   },
   messageButton: {
     flexDirection: "row",
@@ -85,6 +88,9 @@ export default StyleSheet.create({
     marginTop: 10,
     marginBottom: -2,
     backgroundColor: "#1ecad3",
-    borderColor: "black",
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderTopColor: "black",
+    borderBottomColor: "black",
   },
 });
