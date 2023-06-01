@@ -1,21 +1,12 @@
 import React from "react";
-import {
-  StyleSheet,
-  Button,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/Home";
 import AboutUs from "../screens/AboutUs";
 import ChatScreen from "../screens/ChatScreen";
 import chaticon from "../../assets/chaticon.png";
-import axisparrotlogo from "../../assets/AxisParrotLogo.png";
-import axislogofull from "../../assets/axislogofull.png";
+import axisParrot from "../../assets/parrotcirclewhite.png";
 import arrowleft from "../../assets/arrowleft.png";
 import { ChatIcon, LogoIcon, ArrowLeft, HeaderText } from "./styles";
 
@@ -26,6 +17,12 @@ function RootNavigator() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+          headerBackTitleStyle: {
+            color: "black",
+            backgroundColor: "black",
+          },
           headerStyle: {
             backgroundColor: "#1ecad4",
           },
@@ -39,21 +36,21 @@ function RootNavigator() {
         <Stack.Screen
           name="Chat"
           component={ChatScreen}
-          options={({ navigation }) => ({
-            headerLeft: () => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Home")}
-                activeOpacity={0.5}
-                title="chat"
+          options={() => ({
+            headerBackVisible: true,
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontFamily: "Manjari_700Bold",
+                  fontSize: 28,
+                  marginTop: 10,
+                  marginRight: 150,
+                }}
               >
-                <View>
-                  <HeaderText>_</HeaderText>
-
-                  <LogoIcon source={axislogofull} alt="icon" />
-                </View>
-              </TouchableOpacity>
+                axis
+              </Text>
             ),
-            title: null,
+            headerLeft: () => <LogoIcon source={axisParrot} alt="icon" />,
           })}
         />
         <Stack.Screen
@@ -64,12 +61,9 @@ function RootNavigator() {
             headerRight: () => (
               <TouchableOpacity
                 onPress={() => navigation.navigate("Chat")}
-                activeOpacity={0.5}
                 title="chat"
               >
                 <View>
-                  <HeaderText>_</HeaderText>
-
                   <ChatIcon source={chaticon} alt="icon" />
                 </View>
               </TouchableOpacity>
