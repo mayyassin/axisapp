@@ -24,13 +24,13 @@ export const ChatIcon = styled.Image`
   margin-bottom: 60px;
 `;
 export const AboutText = styled.Text`
-  font-family: Manjari_700Bold;
-  font-size: 16px;
+  font-family: TSRotger_Regular;
+  font-size: 17.5px;
 `;
 
 export const FooterText = styled.Text`
-  font-family: Manjari_100Thin;
-  font-size: 8px;
+  font-family: TSRotger_Regular;
+  font-size: 16px;
 `;
 
 export const Footer = styled.View`

@@ -2,8 +2,8 @@ import styled from "styled-components/native";
 
 export const ChatIcon = styled.Image`
   flex-direction: row;
-  width: 40px;
-  height: 30px;
+  width: 36px;
+  height: 35px;
   margin-bottom: 5px;
 `;
 

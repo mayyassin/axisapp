@@ -8,7 +8,7 @@ import actionWhite from "../../../assets/actionwhite.png";
 
 import styles from "./styles";
 
-const HOST = "https://592e-115-99-174-215.ngrok-free.app";
+const HOST = "https://3d67-115-99-174-215.ngrok-free.app";
 
 const botAvatar = axisLogo;
 const userAvatar =
@@ -59,9 +59,9 @@ const ChatScreen = () => {
               )}
               containerStyle={styles.containerActions}
               options={{
-                "Start New Conversation": sendStartConversation,
-                "Clear messages": resetMessages,
-                "Reset Bot": resetBot,
+                // "Start New Conversation": sendStartConversation,
+                "Clear Messages": resetMessages,
+                // "Reset Bot": resetBot,
                 Cancel: () => {},
               }}
             />

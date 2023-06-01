@@ -24,15 +24,15 @@ export const ChatButton = styled.TouchableOpacity`
   width: 80%;
   border-radius: 20%;
   border-color: ${palette.black};
-  border-width: 0.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border-width: 1px;
+  padding-top: 3px;
+  padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
 `;
 
 export const ButtonText = styled.Text`
-  font-family: Manjari_700Bold;
+  font-family: TSRotger_Regular;
   font-weight: bolder;
   font-size: 24px;
   text-align: center;
@@ -44,9 +44,9 @@ export const AboutButton = styled.TouchableOpacity`
   width: 80%;
   border-radius: 20%;
   border-color: ${palette.black};
-  border-width: 0.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border-width: 1px;
+  padding-top: 3px;
+  padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 240px;
 `;

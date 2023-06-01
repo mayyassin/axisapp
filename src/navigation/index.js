@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/Home";
@@ -41,9 +41,9 @@ function RootNavigator() {
             headerTitle: () => (
               <Text
                 style={{
-                  fontFamily: "Manjari_700Bold",
+                  fontFamily: "TSRotger_Regular",
                   fontSize: 28,
-                  marginTop: 10,
+                  marginTop: 5,
                   marginRight: 150,
                 }}
               >
@@ -57,7 +57,17 @@ function RootNavigator() {
           name="AboutUs"
           component={AboutUs}
           options={({ navigation }) => ({
-            title: "About Axis",
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontFamily: "TSRotger_Regular",
+                  fontSize: 24,
+                  marginTop: 5,
+                }}
+              >
+                About Axis
+              </Text>
+            ),
             headerRight: () => (
               <TouchableOpacity
                 onPress={() => navigation.navigate("Chat")}
